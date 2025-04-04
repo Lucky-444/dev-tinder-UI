@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
-import Feed from "./Feed";
+
 import { BASE_URL } from "../utils/constants";
 
 
@@ -20,7 +20,7 @@ const Login = () => {
  //by taking Express.cors()
   const handleLogin = async () => {
     try {
-      const res = await axios.post( BASE_URL + "/login", {
+      const res = await axios.post( BASE_URL +"/login", {
         email : emailId,
         password,
       },{
@@ -32,7 +32,7 @@ const Login = () => {
      
       
       dispatch(addUser(res.data));
-      navigate("/Feed");
+       return navigate("/");
 
     } catch (err) {
       console.log(err);
