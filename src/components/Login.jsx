@@ -1,17 +1,39 @@
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
+import Feed from "./Feed";
+import { BASE_URL } from "../utils/constants";
 
 
 const Login = () => {
+  const navigate = useNavigate();
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
-
+  const dispatch = useDispatch(); 
+ //axios is a npm package used for only to make an API request
+ //this may give you cors error messages 
+ //cross origin issues 
+ //read About in internet
+ //right now we hndles it in our backend server
+ //by taking Express.cors()
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:5173/login", {
-        emailId,
+      const res = await axios.post( BASE_URL + "/login", {
+        email : emailId,
         password,
-      });
+      },{
+        withCredentials : true
+      });//read about this withcredentials 
+      // it show your cookies in your browser console application and cookies section
+      //axios set cookies for same domain
+      //but we manually set withcredentials and our origin 
+     
+      
+      dispatch(addUser(res.data));
+      navigate("/Feed");
+
     } catch (err) {
       console.log(err);
     }
