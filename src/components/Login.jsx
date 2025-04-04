@@ -12,6 +12,8 @@ const Login = () => {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch(); 
+  const [error , setError] = useState("");
+
  //axios is a npm package used for only to make an API request
  //this may give you cors error messages 
  //cross origin issues 
@@ -35,7 +37,8 @@ const Login = () => {
        return navigate("/");
 
     } catch (err) {
-      console.log(err);
+      setError(err?.response?.data || "something went wrong");
+      
     }
   };
 
@@ -68,7 +71,8 @@ const Login = () => {
               />
             </fieldset>
           </div>
-          <div className="card-actions justify-center py-2">
+          <p className="text-red-500">{error }</p>
+          <div className="card-actions justify-center m-2">
             <button className="btn btn-primary" onClick={handleLogin}>Login</button>
           </div>
         </div>
