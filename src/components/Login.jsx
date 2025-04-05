@@ -30,7 +30,7 @@ const Login = () => {
       });//read about this withcredentials 
       // it show your cookies in your browser console application and cookies section
       //axios set cookies for same domain
-      //but we manually set withcredentials and our origin 
+      //but we manually set withcredentials and our origin       
      
       
       dispatch(addUser(res.data));
