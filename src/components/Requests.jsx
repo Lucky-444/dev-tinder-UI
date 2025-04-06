@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
-  
+
   const reviewRequest = async (status, _id) => {
     try {
       const res = await axios.post(
@@ -43,11 +43,8 @@ const Requests = () => {
     fetchRequest();
   }, []);
 
-  if (!requests) return(
-    <div className="justify-center text-red-600">
-      Not fetchRequest
-    </div>
-  );
+  if (!requests)
+    return <div className="justify-center text-red-600">Not fetchRequest</div>;
 
   if (requests.length === 0) {
     return (
@@ -56,8 +53,6 @@ const Requests = () => {
       </div>
     );
   }
-
-
 
   return (
     <div className="text-center my-10">
@@ -83,8 +78,12 @@ const Requests = () => {
               <h2 className="font-bold text-xl">
                 {firstName + " " + lastName}
               </h2>
-              {age && gender && <p>{age + ", " + gender}</p>}
-              <p>{about}</p>
+              {age && gender && (
+                <p>
+                  Age = {age} , Gender = {gender}
+                </p>
+              )}
+              {about && <p> about : {about}</p>}
             </div>
             <div>
               <button
