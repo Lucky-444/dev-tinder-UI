@@ -26,7 +26,11 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  return (
+  if(!feed) return <h1>Not available</h1>
+
+  if(feed.length <= 0) return <h1 className=" flex justify-center text-red-400 my-10"> No More Users Are Available </h1>
+
+  return (  
     feed && (
       <div className="flex justify-center my-10">
         <UserCard user={feed[0]} />

@@ -8,9 +8,7 @@ import { useSelector } from "react-redux";
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
-
-  const [showButton, setShowButton] = useState(true);
-
+  
   const reviewRequest = async (status, _id) => {
     try {
       const res = await axios.post(
@@ -45,13 +43,21 @@ const Requests = () => {
     fetchRequest();
   }, []);
 
-  if (!requests) return;
-  if (requests.length === 0)
+  if (!requests) return(
+    <div className="justify-center text-red-600">
+      Not fetchRequest
+    </div>
+  );
+
+  if (requests.length === 0) {
     return (
       <div className="justify-center items-center flex flex-col my-10">
         <p className="text-red-600 text-bold">No Requests Found</p>
       </div>
     );
+  }
+
+
 
   return (
     <div className="text-center my-10">
@@ -89,7 +95,7 @@ const Requests = () => {
               </button>
               <button
                 className="btn btn-secondary mx-2"
-                onClick={() => reviewRequest("accepted" ,request._id)}
+                onClick={() => reviewRequest("accepted", request._id)}
               >
                 Accept
               </button>
