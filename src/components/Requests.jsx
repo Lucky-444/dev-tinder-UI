@@ -48,8 +48,10 @@ const Requests = () => {
 
   if (requests.length === 0) {
     return (
-      <div className="justify-center items-center flex flex-col my-10">
-        <p className="text-red-600 text-bold">No Requests Found</p>
+      <div className="h-screen flex items-center justify-center">
+        <h1 className="text-2xl font-semibold text-red-400">
+          No Requests Are Available
+        </h1>
       </div>
     );
   }

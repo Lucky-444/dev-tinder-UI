@@ -28,8 +28,15 @@ const Feed = () => {
 
   if(!feed) return <h1>Not available</h1>
 
-  if(feed.length <= 0) return <h1 className=" flex justify-center text-red-400 my-10"> No More Users Are Available </h1>
-
+  if (feed.length <= 0)
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <h1 className="text-2xl font-semibold text-red-400">
+          No More Users Are Available
+        </h1>
+      </div>
+    );
+  
   return (  
     feed && (
       <div className="flex justify-center my-10">

@@ -29,10 +29,10 @@ const UserCard = ({ user }) => {
         <img src={ photoUrl } alt="Photo" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{firstName + " " + lastName}</h2>
-        <p>{age}</p>
-        <p>{gender}</p>
-        <p>{about}</p>
+        <h2 className="card-title">Name : {firstName + " " + lastName}</h2>
+        {age &&<p>Age : {age}</p>}
+        {gender && <p>Gender : {gender}</p>}
+        {about && <p>About : {about}</p>}
         <div className="card-actions justify-center my-4">
           <button
             className="btn btn-primary"

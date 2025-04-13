@@ -26,10 +26,11 @@ const Connection = () => {
 
   if (connections.length === 0)
     return (
-      <h1 className="flex justify-center text-red-800">
-        
-        No Connections Found
-      </h1>
+      <div className="h-screen flex items-center justify-center">
+        <h1 className="text-2xl font-semibold text-red-400">
+          No Connections Found
+        </h1>
+      </div>
     );
 
   return (
