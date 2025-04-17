@@ -56,6 +56,7 @@
 
 // export default Footer;
 
+import { Link } from "react-router-dom";
 import {
   FaInstagram,
   FaFacebookF,
@@ -71,30 +72,40 @@ const Footer = () => {
         {/* Left: Branding + Links */}
         <div className="text-center md:text-left space-y-3">
           <h1 className="text-xl font-semibold"># Connectify</h1>
-          <p className="text-sm text-gray-400">© {new Date().getFullYear()} All rights reserved.</p>
-          <div className="flex flex-col md:flex-row gap-2 text-sm text-gray-400">
-            <a href="#" className="hover:text-pink-400">Privacy Policy</a>
-            <a href="#" className="hover:text-pink-400">Terms of Service</a>
-            <a href="#" className="hover:text-pink-400">Contact</a>
+          <p className="text-sm text-gray-400">
+            © {new Date().getFullYear()} All rights reserved.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 text-sm mt-4 text-gray-400">
+            <Link to="/privacy-policy" className="hover:text-pink-700 transition">
+              Privacy Policy
+            </Link>
+            <Link to="/contact" className="hover:text-pink-700 transition">
+              Contact
+            </Link>
+            <Link to="/terms" className="hover:text-pink-700 transition">
+              Terms & Conditions
+            </Link>
+            <Link to="/about" className="hover:text-pink-700 transition">
+              About
+            </Link>
           </div>
         </div>
 
-        {/* Right: Socials */}
         <div className="flex gap-5 text-xl">
           <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
-            <FaInstagram className="hover:text-pink-500 transition" />
+            <FaInstagram className="hover:text-pink-700 transition" />
           </a>
           <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-            <FaFacebookF className="hover:text-blue-500 transition" />
+            <FaFacebookF className="hover:text-blue-700 transition" />
           </a>
           <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
-            <FaYoutube className="hover:text-red-500 transition" />
+            <FaYoutube className="hover:text-red-700 transition" />
           </a>
           <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-            <FaLinkedinIn className="hover:text-blue-300 transition" />
+            <FaLinkedinIn className="hover:text-blue-700 transition" />
           </a>
           <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
-            <FaTwitter className="hover:text-sky-400 transition" />
+            <FaTwitter className="hover:text-sky-700 transition" />
           </a>
         </div>
       </div>
@@ -103,5 +114,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
